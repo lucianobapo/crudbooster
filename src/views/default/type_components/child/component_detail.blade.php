@@ -10,6 +10,9 @@
                     <thead>
                     <tr>
                         @foreach($form['columns'] as $col)
+                            @if ($col['showInDetail'] === false)
+                                @continue
+                            @endif
                             <th>{{$col['label']}}</th>
                         @endforeach
 
@@ -43,6 +46,9 @@
                     ?>
                     <tr>
                         @foreach($form['columns'] as $col)
+                            @if ($col['showInDetail'] === false)
+                                @continue
+                            @endif
                             <td class="{{$col['name']}}">
                                 <?php
                                 if ($col['type'] == 'select') {
