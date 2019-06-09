@@ -40,6 +40,14 @@ $name = str_slug($form['label'], '');
                                                            class='form-control {{$col['required']?"required":""}}'
                                                             {{($col['readonly']===true)?"readonly":""}}
                                                     />
+						    
+						@elseif($col['type']=='date')
+                                                    <input id='{{$name_column}}' type='date'
+                                                           {{ ($col['max'])?"maxlength='".$col['max']."'":"" }} name='child-{{$col["name"]}}'
+                                                           class='form-control {{$col['required']?"required":""}}'
+                                                            {{($col['readonly']===true)?"readonly":""}}
+                                                    />
+						    
                                                 @elseif($col['type']=='radio')
                                                     <?php
                                                     if($col['dataenum']):
